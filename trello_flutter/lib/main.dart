@@ -1,4 +1,4 @@
- import 'package:trello_client/trello_client.dart';
+import 'package:trello_client/trello_client.dart';
 import 'package:flutter/material.dart';
 import 'package:serverpod_flutter/serverpod_flutter.dart';
 import 'package:trello_flutter/features/landing/presentation/index.dart';
@@ -22,14 +22,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Trello',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
       initialRoute: '/',
       routes: {
-'/':(context) => const Landing(),
-
+        '/': (context) => const Landing(),
       },
     );
   }
