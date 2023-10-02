@@ -1,6 +1,8 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:trello_client/trello_client.dart';
 import 'package:flutter/material.dart';
 import 'package:serverpod_flutter/serverpod_flutter.dart';
+import 'package:trello_flutter/features/home/presentation/index.dart';
 import 'package:trello_flutter/features/landing/presentation/index.dart';
 
 // Sets up a singleton client object that can be used to talk to the server from
@@ -20,15 +22,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       title: 'Trello',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        textTheme: Theme.of(context).textTheme.apply(
+              fontFamily: GoogleFonts.poppins().fontFamily,
+            ),
       ),
       initialRoute: '/',
       routes: {
         '/': (context) => const Landing(),
+        '/home': (context) => const Home(),
       },
     );
   }

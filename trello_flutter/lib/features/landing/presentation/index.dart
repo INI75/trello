@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trello_flutter/utils/color.dart';
 import 'package:trello_flutter/utils/config.dart';
 import 'package:trello_flutter/utils/constant.dart';
+import 'package:trello_flutter/utils/service.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -10,7 +11,7 @@ class Landing extends StatefulWidget {
   State<Landing> createState() => _LandingState();
 }
 
-class _LandingState extends State<Landing> {
+class _LandingState extends State<Landing> with Service {
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
@@ -48,7 +49,9 @@ class _LandingState extends State<Landing> {
             width: media.width * .8,
             height: 50,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                signUp(context);
+              },
               child: const Text('Sign up'),
             ),
           ),
@@ -59,8 +62,10 @@ class _LandingState extends State<Landing> {
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
                   side: const BorderSide(width: 1.0, color: brandCOlor)),
-              onPressed: () {},
-              child: const Text('Sign up'),
+              onPressed: () {
+                logIn(context);
+              },
+              child: const Text('Login In'),
             ),
           ),
           const Text(
