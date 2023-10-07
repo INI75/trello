@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:trello_flutter/features/drawer/presentation/index.dart';
 import 'package:trello_flutter/utils/color.dart';
 import 'package:trello_flutter/utils/config.dart';
 import 'package:trello_flutter/utils/service.dart';
 import 'package:trello_flutter/utils/widgets.dart';
+
+import 'customFloatingAction.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,6 +21,7 @@ class _HomeState extends State<Home> with Service {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Boards'),
+        
         actions: [
           IconButton(
             onPressed: () {
@@ -31,6 +35,8 @@ class _HomeState extends State<Home> with Service {
           ),
         ],
       ),
+
+      drawer: const  CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -63,45 +69,11 @@ class _HomeState extends State<Home> with Service {
             backgroundColor: Colors.green[400],
             child: const Icon(Icons.close),
           ),
-          duration: const Duration(seconds: 1),
-          children: [
-            _floatingActionButton(title: 'Workspace', icon: Icons.book),
-            _floatingActionButton(title: 'Board', icon: Icons.book),
-            _floatingActionButton(title: 'Card', icon: Icons.card_membership),
+          children: const [
+            CustomFloatingAction(title: 'Workspace', icon: Icons.book,route: '/createworkspace'),
+            CustomFloatingAction(title: 'Board', icon: Icons.book,route: '/createboard'),
+            CustomFloatingAction(title: 'Card', icon: Icons.card_membership,route: '/createcard'),
           ]),
-    );
-  }
-
-  Widget _floatingActionButton({
-    required String title,
-    required IconData icon,
-  }) {
-    return GestureDetector(
-      onTap: () {},
-      child: Text.rich(TextSpan(children: [
-        WidgetSpan(
-          child: SizedBox(
-            width: 100,
-            height: 30,
-            child: Card(
-              child: Center(
-                child: Text(title),
-              ),
-            ),
-          ),
-        ),
-        const WidgetSpan(
-          child: SizedBox(
-            width: 20,
-          ),
-        ),
-        WidgetSpan(
-          child: CircleAvatar(
-            backgroundColor: Colors.green[400],
-            child: Icon(icon, color: Colors.white, size: 26),
-          ),
-        )
-      ])),
     );
   }
 }
