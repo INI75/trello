@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:serverpod_flutter/serverpod_flutter.dart';
 import 'package:trello_flutter/features/home/presentation/index.dart';
 import 'package:trello_flutter/features/landing/presentation/index.dart';
+import 'package:trello_flutter/features/notifications/presentation/index.dart';
+import 'package:trello_flutter/features/workspacemenu/presentation/index.dart';
 
 // Sets up a singleton client object that can be used to talk to the server from
 // anywhere in our app. The client is generated from your server code.
@@ -22,9 +24,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
+    return MaterialApp(
       title: 'Trello',
-      debugShowCheckedModeBanner: false, 
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: Theme.of(context).textTheme.apply(
               fontFamily: GoogleFonts.poppins().fontFamily,
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Landing(),
         '/home': (context) => const Home(),
+        '/notifications': (context) => const Notifications(),
+        '/workspacemenuse':(context) => const WorkspaceMenus(),
       },
     );
   }

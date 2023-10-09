@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trello_flutter/features/home/presentation/customSearch.dart';
 
 mixin Service {
   signUp(BuildContext context) {
@@ -13,10 +14,7 @@ mixin Service {
     }
   }
 
-  search(BuildContext context) {
-    
+  search(BuildContext context, List searchLiist) {
+    showSearch(context: context, delegate: CustomSearchDelegate(searchLiist));
   }
-
-
-  
 }

@@ -21,22 +21,22 @@ class _HomeState extends State<Home> with Service {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Boards'),
-        
         actions: [
           IconButton(
             onPressed: () {
-              search(context);
+              search(context, []);
             },
             icon: const Icon(Icons.search),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/notifications');
+            },
             icon: const Icon(Icons.notifications_none_outlined),
           ),
         ],
       ),
-
-      drawer: const  CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> with Service {
               leading: const Text('Workspace 1'),
               trailing: IconButton(
                 onPressed: () {
-                  // Navigate to workspace menu screen
+                  Navigator.pushNamed(context, '/workspacemenuse');
                 },
                 icon: const Icon(Icons.more_horiz),
               ),
@@ -70,9 +70,16 @@ class _HomeState extends State<Home> with Service {
             child: const Icon(Icons.close),
           ),
           children: const [
-            CustomFloatingAction(title: 'Workspace', icon: Icons.book,route: '/createworkspace'),
-            CustomFloatingAction(title: 'Board', icon: Icons.book,route: '/createboard'),
-            CustomFloatingAction(title: 'Card', icon: Icons.card_membership,route: '/createcard'),
+            CustomFloatingAction(
+                title: 'Workspace',
+                icon: Icons.book,
+                route: '/createworkspace'),
+            CustomFloatingAction(
+                title: 'Board', icon: Icons.book, route: '/createboard'),
+            CustomFloatingAction(
+                title: 'Card',
+                icon: Icons.card_membership,
+                route: '/createcard'),
           ]),
     );
   }

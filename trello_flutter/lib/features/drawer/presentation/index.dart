@@ -19,17 +19,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: brandCOlor,
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 5.0),
                   child: Text('Inifome Seth'),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Isethugbosu@gmail.com'),
+                    const Text('Isethugbosu@gmail.com'),
                     IconButton(
                         onPressed: () {
                           setState(() {
@@ -83,9 +83,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     ),
                   ],
                 )
-              : ListTile(
-                  leading: const Icon(Icons.add),
-                  title: const Text('Add account'),
+              : const ListTile(
+                  leading: Icon(Icons.add),
+                  title: Text('Add account'),
                 ),
         ],
       ),
