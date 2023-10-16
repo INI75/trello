@@ -5,6 +5,7 @@ import 'package:serverpod_flutter/serverpod_flutter.dart';
 import 'package:trello_flutter/features/home/presentation/index.dart';
 import 'package:trello_flutter/features/landing/presentation/index.dart';
 import 'package:trello_flutter/features/notifications/presentation/index.dart';
+import 'package:trello_flutter/features/workplacesetting/presentation/index.dart';
 import 'package:trello_flutter/features/workspacemenu/presentation/index.dart';
 
 // Sets up a singleton client object that can be used to talk to the server from
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const Home(),
         '/notifications': (context) => const Notifications(),
         '/workspacemenuse':(context) => const WorkspaceMenus(),
+        '/workspacesettings':(context) => const WorkspaceSettings(),
       },
     );
   }

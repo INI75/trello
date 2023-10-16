@@ -24,11 +24,11 @@ class _WorkspaceMenusState extends State<WorkspaceMenus> {
           ),
         ),
         title: const Text('Workspace menu'),
-        centerTitle: false,
+        centerTitle: false, 
         actions: [
           IconButton(
             onPressed: () {
-              // navigate to workspace seetings
+              Navigator.pushNamed(context, '/workspacesettings');
             },
             icon: const Icon(Icons.settings),
           ),
@@ -98,18 +98,24 @@ class _WorkspaceMenusState extends State<WorkspaceMenus> {
               subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const CircleAvatar(
-                      backgroundColor: brandCOlor,
-                      child: Text('J'),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 18.0),
+                      child: const CircleAvatar(
+                        backgroundColor: brandCOlor,
+                        child: Text('J'),
+                      ),
                     ),
-                    SizedBox(
-                      height: 37,
-                      width: media.width * 0.7,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: brandCOlor),
-                          onPressed: () {},
-                          child: const Text('Invite')),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 15.0),
+                      child: SizedBox(
+                        height: 37,
+                        width: media.width * 0.7,
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: brandCOlor),
+                            onPressed: () {},
+                            child: const Text('Invite')),
+                      ),
                     )
                   ]),
             ),
