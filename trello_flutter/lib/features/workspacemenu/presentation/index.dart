@@ -24,7 +24,7 @@ class _WorkspaceMenusState extends State<WorkspaceMenus> {
           ),
         ),
         title: const Text('Workspace menu'),
-        centerTitle: false, 
+        centerTitle: false,
         actions: [
           IconButton(
             onPressed: () {
@@ -99,10 +99,19 @@ class _WorkspaceMenusState extends State<WorkspaceMenus> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 18.0),
-                      child: const CircleAvatar(
-                        backgroundColor: brandCOlor,
-                        child: Text('J'),
+                      padding: EdgeInsets.only(bottom: 18.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/members');
+                        },
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: brandCOlor,
+                              child: Text('J'),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
